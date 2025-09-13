@@ -25,7 +25,7 @@ export const teamData = [
     bio: 'Product strategist and UX expert with a passion for creating digital experiences that users love.',
     image: '/sami2.jpg',
     social: {
-      github: 'https:/github.com/SamiSahil',
+      github: 'https://github.com/SamiSahil',
       linkedin: '#',
       twitter: '#',
       email: '#',
