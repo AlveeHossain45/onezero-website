@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react'; // useRef এখানে যোগ করা হয়েছে
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiCalendar, FiClock, FiArrowRight } from 'react-icons/fi';
 
 const Blog = () => {
-  const [ref, inView] = useInView({
+  // --- পরিবর্তন শুরু ---
+  // inView এর জন্য ref এখন আমরা সরাসরি ব্যবহার করবো
+  const sectionRef = useRef(null); 
+  const [inViewRef, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  // --- নতুন কোড শুরু ---
+  // ref গুলোকে একসাথে সংযুক্ত করার জন্য একটি ফাংশন
+  const setRefs = (node) => {
+    sectionRef.current = node;
+    inViewRef(node);
+  };
+  // --- পরিবর্তন শেষ ---
+
   const [showAll, setShowAll] = useState(false);
-  // --- নতুন কোড শেষ ---
 
   const blogPosts = [
     {
@@ -52,16 +60,22 @@ const Blog = () => {
     },
   ];
 
-  // --- নতুন কোড শুরু ---
   const toggleShowAll = () => {
+    // --- পরিবর্তন শুরু ---
+    // যদি সব পোস্ট দেখা যায় (এবং আমরা এখন কমাতে যাচ্ছি), তাহলে সেকশনের শুরুতে স্ক্রল করি
+    if (showAll && sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    // --- পরিবর্তন শেষ ---
     setShowAll(prev => !prev);
   };
 
   const postsToShow = showAll ? blogPosts : blogPosts.slice(0, 1);
-  // --- নতুন কোড শেষ ---
 
   return (
-    <section id="blog" ref={ref} className="section-padding bg-dark-50 dark:bg-dark-800">
+    // --- পরিবর্তন শুরু ---
+    <section id="blog" ref={setRefs} className="section-padding bg-dark-50 dark:bg-dark-800">
+    {/* --- পরিবর্তন শেষ --- */}
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -77,7 +91,6 @@ const Blog = () => {
           </p>
         </motion.div>
 
-        {/* --- পরিবর্তন এখানে করা হয়েছে --- */}
         <div className={`grid gap-8 ${showAll ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 justify-items-center'}`}>
           {postsToShow.map((post, index) => (
             <motion.article
@@ -127,7 +140,6 @@ const Blog = () => {
           ))}
         </div>
 
-        {/* --- পরিবর্তন এখানে করা হয়েছে --- */}
         {blogPosts.length > 1 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
