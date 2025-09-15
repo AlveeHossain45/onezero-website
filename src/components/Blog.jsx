@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiCalendar, FiClock, FiArrowRight } from 'react-icons/fi';
-
-// ...বাকি সব কোড আগের মতোই থাকবে
 
 const Blog = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  // --- নতুন কোড শুরু ---
+  const [showAll, setShowAll] = useState(false);
+  // --- নতুন কোড শেষ ---
 
   const blogPosts = [
     {
@@ -50,6 +52,14 @@ const Blog = () => {
     },
   ];
 
+  // --- নতুন কোড শুরু ---
+  const toggleShowAll = () => {
+    setShowAll(prev => !prev);
+  };
+
+  const postsToShow = showAll ? blogPosts : blogPosts.slice(0, 1);
+  // --- নতুন কোড শেষ ---
+
   return (
     <section id="blog" ref={ref} className="section-padding bg-dark-50 dark:bg-dark-800">
       <div className="container mx-auto">
@@ -67,15 +77,16 @@ const Blog = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {blogPosts.map((post, index) => (
+        {/* --- পরিবর্তন এখানে করা হয়েছে --- */}
+        <div className={`grid gap-8 ${showAll ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 justify-items-center'}`}>
+          {postsToShow.map((post, index) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-white dark:bg-dark-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white dark:bg-dark-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 w-full max-w-sm"
             >
               <div className="h-48 bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/20 dark:to-secondary-900/20 flex items-center justify-center">
                 <div className="w-16 h-16 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl">
@@ -116,16 +127,20 @@ const Blog = () => {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center mt-12"
-        >
-          <button className="btn-primary">
-            View All Articles
-          </button>
-        </motion.div>
+        {/* --- পরিবর্তন এখানে করা হয়েছে --- */}
+        {blogPosts.length > 1 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="text-center mt-12"
+            >
+              <button onClick={toggleShowAll} className="btn-primary">
+                {showAll ? 'Show Less' : 'View All Articles'}
+              </button>
+            </motion.div>
+        )}
+        
       </div>
     </section>
   );
