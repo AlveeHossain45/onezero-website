@@ -1,9 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiCode, FiSmartphone, FiLayout, FiShield, FiCloud, FiCpu, FiDatabase, FiBriefcase } from 'react-icons/fi';
-
-// ...বাকি সব কোড আগের মতোই থাকবে
+import { FiCode, FiLayout, FiDatabase } from 'react-icons/fi'; // অপ্রয়োজনীয় আইকন সরানো হয়েছে
 
 const Services = () => {
   const [ref, inView] = useInView({
@@ -11,6 +9,7 @@ const Services = () => {
     threshold: 0.1,
   });
 
+  // --- পরিবর্তন এখানে করা হয়েছে ---
   const services = [
     {
       icon: FiCode,
@@ -18,41 +17,17 @@ const Services = () => {
       description: 'Modern, responsive websites and web applications built with the latest technologies for optimal performance and user experience.',
     },
     {
-      icon: FiSmartphone,
-      title: 'Mobile App Development',
-      description: 'Native and cross-platform mobile applications for iOS and Android that deliver seamless user experiences.',
-    },
-    {
       icon: FiLayout,
       title: 'UI/UX Design',
       description: 'User-centered design solutions that combine aesthetics with functionality to create intuitive digital experiences.',
-    },
-    {
-      icon: FiShield,
-      title: 'Cybersecurity Solutions',
-      description: 'Comprehensive security assessments and implementations to protect your digital assets from threats.',
-    },
-    {
-      icon: FiCloud,
-      title: 'Cloud & DevOps',
-      description: 'Cloud infrastructure setup, migration, and DevOps practices to ensure scalability and reliability.',
-    },
-    {
-      icon: FiCpu,
-      title: 'AI & Machine Learning',
-      description: 'Intelligent solutions leveraging artificial intelligence and machine learning to solve complex problems.',
     },
     {
       icon: FiDatabase,
       title: 'Database Management',
       description: 'Database design, optimization, and management for efficient data storage and retrieval.',
     },
-    {
-      icon: FiBriefcase,
-      title: 'IT Consulting',
-      description: 'Strategic technology consulting to help businesses make informed decisions about their digital transformation.',
-    },
   ];
+  // --- পরিবর্তন শেষ ---
 
   return (
     <section id="services" ref={ref} className="section-padding bg-dark-50 dark:bg-dark-800">
@@ -71,7 +46,7 @@ const Services = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> {/* lg:grid-cols-4 থেকে lg:grid-cols-3 করা হয়েছে */}
           {services.map((service, index) => (
             <motion.div
               key={index}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // <--- এই লাইনটি যোগ করা হয়েছে
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -37,10 +37,12 @@ function App() {
         <Navbar />
         <Hero />
         <About />
+        {/* --- পরিবর্তন এখানে করা হয়েছে --- */}
+        <Team /> 
         <Services />
         <Portfolio />
-        <Team />
         <Testimonials />
+        {/* --- পরিবর্তন শেষ --- */}
         <Blog />
         <FAQ />
         <Contact />
@@ -52,4 +54,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;
