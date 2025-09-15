@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiArrowRight, FiPlay } from 'react-icons/fi';
-
-// ...বাকি সব কোড আগের মতোই থাকবে
+import { FiArrowRight } from 'react-icons/fi'; // FiPlay আইকনটি সরানো হয়েছে
 
 const Hero = () => {
   return (
@@ -43,15 +41,8 @@ const Hero = () => {
 
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-white/80 dark:bg-dark-800/80 backdrop-blur-md border border-white/20 dark:border-dark-700/30 shadow-lg mb-8"
-          >
-            <div className="w-2 h-2 rounded-full bg-primary-500 mr-2 animate-pulse"></div>
-            <span className="text-sm font-medium text-dark-700 dark:text-dark-300">We're hiring talented developers</span>
-          </motion.div>
+
+          {/* "We're hiring" ব্যানারটি এখান থেকে সরানো হয়েছে */}
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -86,17 +77,8 @@ const Hero = () => {
             </button>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="flex items-center"
-          >
-            <button className="flex items-center justify-center w-16 h-16 rounded-full gradient-bg shadow-lg">
-              <FiPlay size={24} className="text-white ml-1" />
-            </button>
-            <span className="ml-4 text-dark-700 dark:text-dark-300 font-medium">Watch our story</span>
-          </motion.div>
+          {/* "Watch our story" অপশনটি এখান থেকে সরানো হয়েছে */}
+
         </div>
       </div>
 
