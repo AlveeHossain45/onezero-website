@@ -15,9 +15,7 @@ const Blog = () => {
     inViewRef(node);
   };
 
-  const [showAll, setShowAll] = useState(false);
-
-  // --- পরিবর্তন শুরু: ছবি এবং লিঙ্ক আপডেট করা হয়েছে ---
+  // --- পরিবর্তন শুরু: Cybersecurity পোস্টটি সরিয়ে দেওয়া হয়েছে ---
   const blogPosts = [
     {
       id: 1,
@@ -37,7 +35,7 @@ const Blog = () => {
       date: 'February 28, 2024',
       readTime: '7 min read',
       category: 'React',
-      link: 'https://www.freecodecamp.org/news/how-to-build-scalable-react-apps/' // <-- লিঙ্কটি சரி করা হয়েছে
+      link: 'https://www.freecodecamp.org/news/how-to-build-scalable-react-apps/'
     },
     {
       id: 3,
@@ -49,27 +47,12 @@ const Blog = () => {
       category: 'Artificial Intelligence',
       link: 'https://www.toptal.com/artificial-intelligence/how-to-integrate-ai'
     },
-    {
-      id: 4,
-      title: 'Cybersecurity Best Practices for Startups',
-      excerpt: 'Essential security measures every startup should implement to protect their digital assets.',
-      image: 'https://images.unsplash.com/photo-1593433693255-a2a1a2b29172?auto=format&fit=crop&q=80&w=870', // <-- নতুন ছবি যোগ করা হয়েছে
-      date: 'January 30, 2024',
-      readTime: '8 min read',
-      category: 'Security',
-      link: 'https://www.forbes.com/sites/forbestechcouncil/2023/05/15/cybersecurity-best-practices-for-startups-in-2023/'
-    },
   ];
   // --- পরিবর্তন শেষ ---
 
-  const toggleShowAll = () => {
-    if (showAll && sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-    setShowAll(prev => !prev);
-  };
+  const [showAll, setShowAll] = useState(false); // এই স্টেটটি এখন আর ব্যবহৃত হবে না, তবে ভবিষ্যতে পোস্ট যোগ করলে কাজে লাগবে
 
-  const postsToShow = showAll ? blogPosts : blogPosts.slice(0, 3);
+  const postsToShow = blogPosts;
 
   return (
     <section id="blog" ref={setRefs} className="section-padding bg-dark-50 dark:bg-dark-800">
@@ -141,20 +124,6 @@ const Blog = () => {
             </motion.article>
           ))}
         </div>
-
-        {blogPosts.length > 3 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-center mt-12"
-            >
-              <button onClick={toggleShowAll} className="btn-primary">
-                {showAll ? 'Show Less' : 'View All Articles'}
-              </button>
-            </motion.div>
-        )}
-        
       </div>
     </section>
   );

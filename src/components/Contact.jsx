@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiMessageSquare } from 'react-icons/fi';
 
-// ...বাকি সব কোড আগের মতোই থাকবে
-
 const Contact = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -26,18 +24,18 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
     console.log('Form submitted:', formData);
     alert('Thank you for your message! We will get back to you soon.');
     setFormData({ name: '', email: '', message: '' });
   };
 
+  // --- পরিবর্তন শুরু: ইমেইল, ফোন এবং ঠিকানা আপডেট করা হয়েছে ---
   const contactMethods = [
     {
       icon: FiMail,
       title: 'Email Us',
-      details: 'info@onezero.com',
-      link: 'mailto:info@onezero.com'
+      details: 'mohammadhossain042004@gmail.com',
+      link: 'mailto:mohammadhossain042004@gmail.com'
     },
     {
       icon: FiPhone,
@@ -47,11 +45,12 @@ const Contact = () => {
     },
     {
       icon: FiMapPin,
-      title: 'Visit Us',
-      details: '123 Tech Street, San Francisco, CA 94103',
-      link: 'https://maps.google.com'
+      title: 'Location',
+      details: 'Uttara, Bangladesh',
+      link: 'https://www.google.com/maps/search/?api=1&query=Uttara,Dhaka,Bangladesh'
     },
   ];
+  // --- পরিবর্তন শেষ ---
 
   return (
     <section id="contact" ref={ref} className="section-padding bg-dark-50 dark:bg-dark-800">
@@ -92,6 +91,8 @@ const Contact = () => {
                 <motion.a
                   key={index}
                   href={method.link}
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -113,22 +114,9 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Office Hours */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="p-6 bg-white dark:bg-dark-900 rounded-2xl shadow-md"
-            >
-              <h4 className="font-bold text-dark-800 dark:text-white mb-3">
-                Office Hours
-              </h4>
-              <p className="text-dark-600 dark:text-dark-300">
-                Monday - Friday: 9:00 AM - 6:00 PM PST<br />
-                Saturday: 10:00 AM - 4:00 PM PST<br />
-                Sunday: Closed
-              </p>
-            </motion.div>
+            {/* --- পরিবর্তন শুরু: Office Hours সেকশনটি সরিয়ে দেওয়া হয়েছে --- */}
+            
+            {/* --- পরিবর্তন শেষ --- */}
           </motion.div>
 
           {/* Contact Form */}
