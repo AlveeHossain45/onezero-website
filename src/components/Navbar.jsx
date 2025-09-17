@@ -17,18 +17,16 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // --- পরিবর্তন এখানে করা হয়েছে ---
+  // --- পরিবর্তন: Testimonials লিঙ্কটি সরানো হয়েছে ---
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Team', href: '#team' },
     { name: 'Services', href: '#services' },
     { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Testimonials', href: '#testimonials' },
     { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
   ];
-  // --- পরিবর্তন শেষ ---
 
   return (
     <motion.nav

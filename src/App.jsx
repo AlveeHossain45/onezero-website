@@ -6,7 +6,6 @@ import About from './components/About';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import Team from './components/Team';
-import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
@@ -37,12 +36,10 @@ function App() {
         <Navbar />
         <Hero />
         <About />
-        {/* --- পরিবর্তন এখানে করা হয়েছে --- */}
         <Team /> 
         <Services />
         <Portfolio />
-        <Testimonials />
-        {/* --- পরিবর্তন শেষ --- */}
+        {/* Testimonials section has been removed */}
         <Blog />
         <FAQ />
         <Contact />

@@ -4,8 +4,6 @@ import { useInView } from 'react-intersection-observer';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import faqData from '../data/faq';
 
-// ...বাকি সব কোড আগের মতোই থাকবে
-
 const FAQ = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -133,9 +131,13 @@ const FAQ = () => {
             <p className="mb-6 max-w-2xl mx-auto opacity-90">
               Can't find the answer you're looking for? Please reach out to our friendly team.
             </p>
-            <button className="bg-white text-primary-600 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
+            {/* --- পরিবর্তন: বাটনটিকে লিঙ্কে পরিবর্তন করা হয়েছে --- */}
+            <a 
+              href="#contact"
+              className="inline-block bg-white text-primary-600 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
+            >
               Contact Us
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>

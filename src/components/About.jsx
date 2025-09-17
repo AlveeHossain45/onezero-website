@@ -3,17 +3,16 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiTarget, FiEye, FiCode, FiUsers } from 'react-icons/fi';
 
-// ...বাকি সব কোড আগের মতোই থাকবে
-
 const About = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
+  // --- পরিবর্তন: প্রজেক্ট এবং ক্লায়েন্টের সংখ্যা আপডেট করা হয়েছে ---
   const stats = [
-    { icon: FiCode, number: '50+', label: 'Projects Completed' },
-    { icon: FiUsers, number: '25+', label: 'Happy Clients' },
+    { icon: FiCode, number: '10+', label: 'Projects Completed' },
+    { icon: FiUsers, number: '10+', label: 'Happy Clients' },
     { icon: FiCode, number: '2', label: 'Founding Engineers' },
     { icon: FiTarget, number: '100%', label: 'Client Satisfaction' },
   ];

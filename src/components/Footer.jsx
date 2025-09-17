@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiArrowUp } from 'react-icons/fi';
 
-// ...বাকি সব কোড আগের মতোই থাকবে
-
 const Footer = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -13,6 +11,7 @@ const Footer = () => {
 
   const currentYear = new Date().getFullYear();
 
+  // --- পরিবর্তন: কানেক্ট লিঙ্কগুলো আপডেট করা হয়েছে ---
   const footerLinks = {
     company: [
       { name: 'About Us', href: '#about' },
@@ -27,10 +26,10 @@ const Footer = () => {
       { name: 'Terms of Service', href: '#' },
     ],
     connect: [
-      { name: 'GitHub', href: '#', icon: FiGithub },
+      { name: 'GitHub', href: 'https://github.com/AlveeHossain45', icon: FiGithub },
       { name: 'LinkedIn', href: '#', icon: FiLinkedin },
       { name: 'Twitter', href: '#', icon: FiTwitter },
-      { name: 'Email', href: 'mailto:info@onezero.com', icon: FiMail },
+      { name: 'Email', href: 'mailto:mohammadhossain042004@gmail.com', icon: FiMail },
     ],
   };
 
@@ -119,6 +118,8 @@ const Footer = () => {
                   <a
                     key={index}
                     href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-dark-700 flex items-center justify-center text-dark-300 hover:bg-primary-600 hover:text-white transition-colors"
                   >
                     <Icon size={18} />

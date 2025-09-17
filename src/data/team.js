@@ -1,36 +1,30 @@
-// src/data/team.js
-
-import { FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
+import { FiGithub, FiMail } from 'react-icons/fi';
 
 export const teamData = [
   {
     id: 1,
     name: 'Alvee Hossain',
-    role: 'Co-Founder & CEO', // আপনার রোল CEO তে পরিবর্তন করা হয়েছে
+    role: 'Co-Founder & CEO',
     bio: 'Full-stack developer with 8+ years of experience in building scalable web applications and cloud infrastructure.',
     image: '/alvee1.jpg',
+    // --- পরিবর্তন: লিঙ্কডইন ও টুইটার সরানো হয়েছে, ইমেইল আপডেট করা হয়েছে ---
     social: {
       github: 'https://github.com/AlveeHossain45',
-      linkedin: '#',
-      twitter: '#',
-      email: '#',
+      email: 'mailto:mohammadhossain042004@gmail.com',
     },
-    // --- নতুন লাইন যোগ করা হয়েছে ---
     portfolio: 'https://alveehossain.netlify.app',
   },
   {
     id: 2,
     name: 'Samiuzzaman Sahil',
-    role: 'Co-Founder & CTO', // আপনার বন্ধুর রোল CTO তে পরিবর্তন করা হয়েছে
+    role: 'Co-Founder & CTO',
     bio: 'Product strategist and UX expert with a passion for creating digital experiences that users love.',
     image: '/sami2.jpg',
+    // --- পরিবর্তন: লিঙ্কডইন ও টুইটার সরানো হয়েছে ---
     social: {
       github: 'https://github.com/SamiSahil',
-      linkedin: '#',
-      twitter: '#',
-      email: '#',
+      email: '#', // আপনি চাইলে এখানে साहिल এর ইমেইল যোগ করতে পারেন
     },
-    // --- নতুন লাইন যোগ করা হয়েছে ---
     portfolio: 'https://samisahil.github.io/samiprofile/',
   }
 ];

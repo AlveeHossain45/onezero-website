@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiCode, FiLayout, FiDatabase } from 'react-icons/fi'; // অপ্রয়োজনীয় আইকন সরানো হয়েছে
+import { FiCode, FiLayout, FiDatabase } from 'react-icons/fi';
 
 const Services = () => {
   const [ref, inView] = useInView({
@@ -9,7 +9,6 @@ const Services = () => {
     threshold: 0.1,
   });
 
-  // --- পরিবর্তন এখানে করা হয়েছে ---
   const services = [
     {
       icon: FiCode,
@@ -27,7 +26,6 @@ const Services = () => {
       description: 'Database design, optimization, and management for efficient data storage and retrieval.',
     },
   ];
-  // --- পরিবর্তন শেষ ---
 
   return (
     <section id="services" ref={ref} className="section-padding bg-dark-50 dark:bg-dark-800">
@@ -46,7 +44,7 @@ const Services = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> {/* lg:grid-cols-4 থেকে lg:grid-cols-3 করা হয়েছে */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -70,17 +68,7 @@ const Services = () => {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-center mt-16"
-        >
-          <button className="btn-primary">
-            View All Services
-          </button>
-        </motion.div>
+        {/* "View All Services" button has been removed */}
       </div>
     </section>
   );
