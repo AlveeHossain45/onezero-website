@@ -69,9 +69,7 @@ const Blog = () => {
     setShowAll(prev => !prev);
   };
 
-  // --- পরিবর্তন শুরু: ডিফল্ট পোস্ট সংখ্যা ৩ করা হয়েছে ---
   const postsToShow = showAll ? blogPosts : blogPosts.slice(0, 3);
-  // --- পরিবর্তন শেষ ---
 
   return (
     <section id="blog" ref={setRefs} className="section-padding bg-dark-50 dark:bg-dark-800">
@@ -90,8 +88,7 @@ const Blog = () => {
           </p>
         </motion.div>
 
-        {/* --- পরিবর্তন শুরু: grid-cols-4 থেকে grid-cols-3 করা হয়েছে --- */}
-        <div className={`grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3`}>
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {postsToShow.map((post, index) => (
             <motion.article
               key={post.id}
@@ -99,13 +96,11 @@ const Blog = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-white dark:bg-dark-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col"
+              className="bg-white dark:bg-dark-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col group"
             >
-              {/* --- পরিবর্তন শুরু: ছবি দেখানোর জন্য কোড --- */}
               <a href={post.link} target="_blank" rel="noopener noreferrer" className="block h-48 overflow-hidden">
                 <img src={post.image} alt={post.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300" />
               </a>
-              {/* --- পরিবর্তন শেষ --- */}
 
               <div className="p-6 flex flex-col flex-grow">
                 <span className="inline-block px-3 py-1 text-xs font-medium bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full mb-4 self-start">
@@ -133,7 +128,6 @@ const Blog = () => {
                   </div>
                 </div>
 
-                {/* --- পরিবর্তন শুরু: "Read More" বাটনটিকে একটি লিঙ্কে পরিণত করা হয়েছে --- */}
                 <a 
                   href={post.link} 
                   target="_blank" 
@@ -143,13 +137,11 @@ const Blog = () => {
                   Read More
                   <FiArrowRight size={16} className="ml-1" />
                 </a>
-                {/* --- পরিবর্তন শেষ --- */}
               </div>
             </motion.article>
           ))}
         </div>
 
-        {/* --- পরিবর্তন শুরু: blogPosts.length > 3 করা হয়েছে --- */}
         {blogPosts.length > 3 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -162,7 +154,6 @@ const Blog = () => {
               </button>
             </motion.div>
         )}
-        {/* --- পরিবর্তন শেষ --- */}
         
       </div>
     </section>
