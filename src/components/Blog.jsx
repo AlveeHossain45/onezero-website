@@ -1,81 +1,80 @@
-import React, { useState, useRef } from 'react'; // useRef এখানে যোগ করা হয়েছে
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiCalendar, FiClock, FiArrowRight } from 'react-icons/fi';
 
 const Blog = () => {
-  // --- পরিবর্তন শুরু ---
-  // inView এর জন্য ref এখন আমরা সরাসরি ব্যবহার করবো
-  const sectionRef = useRef(null); 
+  const sectionRef = useRef(null);
   const [inViewRef, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  // ref গুলোকে একসাথে সংযুক্ত করার জন্য একটি ফাংশন
   const setRefs = (node) => {
     sectionRef.current = node;
     inViewRef(node);
   };
-  // --- পরিবর্তন শেষ ---
 
   const [showAll, setShowAll] = useState(false);
 
+  // --- পরিবর্তন শুরু: ছবি, লিঙ্ক এবং নতুন পোস্ট যোগ করা হয়েছে ---
   const blogPosts = [
     {
       id: 1,
-      title: 'The Future of Web Development in 2024',
+      title: 'The Future of Web Development in 2025',
       excerpt: 'Explore the latest trends and technologies shaping the future of web development.',
-      image: '/blog1.jpg',
+      image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=870',
       date: 'March 15, 2024',
       readTime: '5 min read',
       category: 'Web Development',
+      link: 'https://www.freecodecamp.org/news/web-development-trends/'
     },
     {
       id: 2,
       title: 'Building Scalable React Applications',
       excerpt: 'Best practices and patterns for building large-scale React applications that stand the test of time.',
-      image: '/blog2.jpg',
+      image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=870',
       date: 'February 28, 2024',
       readTime: '7 min read',
       category: 'React',
+      link: 'https://www.freecodecamp.org/news/scaling-react-applications/'
     },
     {
       id: 3,
       title: 'AI Integration in Modern Applications',
       excerpt: 'How to effectively integrate AI capabilities into your applications to enhance user experiences.',
-      image: '/blog3.jpg',
+      image: 'https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=870',
       date: 'February 12, 2024',
       readTime: '6 min read',
       category: 'Artificial Intelligence',
+      link: 'https://www.toptal.com/artificial-intelligence/how-to-integrate-ai'
     },
     {
       id: 4,
       title: 'Cybersecurity Best Practices for Startups',
       excerpt: 'Essential security measures every startup should implement to protect their digital assets.',
-      image: '/blog4.jpg',
+      image: 'https://images.unsplash.com/photo-1550751827-4133d11b2b80?auto=format&fit=crop&q=80&w=870',
       date: 'January 30, 2024',
       readTime: '8 min read',
       category: 'Security',
+      link: 'https://www.forbes.com/sites/forbestechcouncil/2023/05/15/cybersecurity-best-practices-for-startups-in-2023/'
     },
   ];
+  // --- পরিবর্তন শেষ ---
 
   const toggleShowAll = () => {
-    // --- পরিবর্তন শুরু ---
-    // যদি সব পোস্ট দেখা যায় (এবং আমরা এখন কমাতে যাচ্ছি), তাহলে সেকশনের শুরুতে স্ক্রল করি
     if (showAll && sectionRef.current) {
       sectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-    // --- পরিবর্তন শেষ ---
     setShowAll(prev => !prev);
   };
 
-  const postsToShow = showAll ? blogPosts : blogPosts.slice(0, 1);
+  // --- পরিবর্তন শুরু: ডিফল্ট পোস্ট সংখ্যা ৩ করা হয়েছে ---
+  const postsToShow = showAll ? blogPosts : blogPosts.slice(0, 3);
+  // --- পরিবর্তন শেষ ---
 
   return (
-    // --- পরিবর্তন শুরু ---
     <section id="blog" ref={setRefs} className="section-padding bg-dark-50 dark:bg-dark-800">
-    {/* --- পরিবর্তন শেষ --- */}
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -91,7 +90,8 @@ const Blog = () => {
           </p>
         </motion.div>
 
-        <div className={`grid gap-8 ${showAll ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 justify-items-center'}`}>
+        {/* --- পরিবর্তন শুরু: grid-cols-4 থেকে grid-cols-3 করা হয়েছে --- */}
+        <div className={`grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3`}>
           {postsToShow.map((post, index) => (
             <motion.article
               key={post.id}
@@ -99,24 +99,26 @@ const Blog = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-white dark:bg-dark-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 w-full max-w-sm"
+              className="bg-white dark:bg-dark-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col"
             >
-              <div className="h-48 bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/20 dark:to-secondary-900/20 flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl">
-                  0{post.id}
-                </div>
-              </div>
+              {/* --- পরিবর্তন শুরু: ছবি দেখানোর জন্য কোড --- */}
+              <a href={post.link} target="_blank" rel="noopener noreferrer" className="block h-48 overflow-hidden">
+                <img src={post.image} alt={post.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300" />
+              </a>
+              {/* --- পরিবর্তন শেষ --- */}
 
-              <div className="p-6">
-                <span className="inline-block px-3 py-1 text-xs font-medium bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full mb-4">
+              <div className="p-6 flex flex-col flex-grow">
+                <span className="inline-block px-3 py-1 text-xs font-medium bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full mb-4 self-start">
                   {post.category}
                 </span>
 
-                <h3 className="text-xl font-bold mb-3 text-dark-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                  {post.title}
+                <h3 className="text-xl font-bold mb-3 text-dark-800 dark:text-white">
+                  <a href={post.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                    {post.title}
+                  </a>
                 </h3>
 
-                <p className="text-dark-600 dark:text-dark-300 mb-4">
+                <p className="text-dark-600 dark:text-dark-300 mb-4 flex-grow">
                   {post.excerpt}
                 </p>
 
@@ -131,16 +133,24 @@ const Blog = () => {
                   </div>
                 </div>
 
-                <button className="flex items-center text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300 transition-colors">
+                {/* --- পরিবর্তন শুরু: "Read More" বাটনটিকে একটি লিঙ্কে পরিণত করা হয়েছে --- */}
+                <a 
+                  href={post.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300 transition-colors self-start mt-auto"
+                >
                   Read More
                   <FiArrowRight size={16} className="ml-1" />
-                </button>
+                </a>
+                {/* --- পরিবর্তন শেষ --- */}
               </div>
             </motion.article>
           ))}
         </div>
 
-        {blogPosts.length > 1 && (
+        {/* --- পরিবর্তন শুরু: blogPosts.length > 3 করা হয়েছে --- */}
+        {blogPosts.length > 3 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -152,6 +162,7 @@ const Blog = () => {
               </button>
             </motion.div>
         )}
+        {/* --- পরিবর্তন শেষ --- */}
         
       </div>
     </section>
