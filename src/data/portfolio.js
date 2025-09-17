@@ -25,7 +25,7 @@ export const portfolioData = [
     id: 3,
     title: 'School Management System Basic',
     description: 'Mobile application for tracking workouts and nutrition with AI recommendations and social features.',
-    image: '/smc3.png',
+    image: '/sms3.png',
     tags: ['mobile', 'design'],
     technologies: ['React Native', 'Firebase', 'TensorFlow'],
     link: '#',
