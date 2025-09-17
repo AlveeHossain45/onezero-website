@@ -17,7 +17,7 @@ const Blog = () => {
 
   const [showAll, setShowAll] = useState(false);
 
-  // --- পরিবর্তন শুরু: ছবি, লিঙ্ক এবং নতুন পোস্ট যোগ করা হয়েছে ---
+  // --- পরিবর্তন শুরু: ছবি এবং লিঙ্ক আপডেট করা হয়েছে ---
   const blogPosts = [
     {
       id: 1,
@@ -37,7 +37,7 @@ const Blog = () => {
       date: 'February 28, 2024',
       readTime: '7 min read',
       category: 'React',
-      link: 'https://www.freecodecamp.org/news/scaling-react-applications/'
+      link: 'https://www.freecodecamp.org/news/how-to-build-scalable-react-apps/' // <-- লিঙ্কটি சரி করা হয়েছে
     },
     {
       id: 3,
@@ -53,7 +53,7 @@ const Blog = () => {
       id: 4,
       title: 'Cybersecurity Best Practices for Startups',
       excerpt: 'Essential security measures every startup should implement to protect their digital assets.',
-      image: 'https://images.unsplash.com/photo-1550751827-4133d11b2b80?auto=format&fit=crop&q=80&w=870',
+      image: 'https://images.unsplash.com/photo-1593433693255-a2a1a2b29172?auto=format&fit=crop&q=80&w=870', // <-- নতুন ছবি যোগ করা হয়েছে
       date: 'January 30, 2024',
       readTime: '8 min read',
       category: 'Security',
