@@ -5,7 +5,7 @@ export const teamData = [
     id: 1,
     name: 'Alvee Hossain',
     role: 'Co-Founder & CEO',
-    bio: 'Full-stack developer with 8+ years of experience in building scalable web applications and cloud infrastructure.',
+    bio: 'Frontend-focused Web Developer with 2 years of experience in building responsive websites and programming expertise.',
     image: '/alvee1.jpg',
     // --- পরিবর্তন: লিঙ্কডইন ও টুইটার সরানো হয়েছে, ইমেইল আপডেট করা হয়েছে ---
     social: {
@@ -18,7 +18,7 @@ export const teamData = [
     id: 2,
     name: 'Samiuzzaman Sahil',
     role: 'Co-Founder & CTO',
-    bio: 'Product strategist and UX expert with a passion for creating digital experiences that users love.',
+    bio: 'Turning ideas into powerful web applications with 2 years of backend expertise.',
     image: '/sami2.jpg',
     // --- পরিবর্তন: লিঙ্কডইন ও টুইটার সরানো হয়েছে ---
     social: {
