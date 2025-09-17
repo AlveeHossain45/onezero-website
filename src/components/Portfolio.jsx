@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import { portfolioData } from '../data/portfolio'; // <-- পরিবর্তন এখানে: portfolio.js থেকে ডেটা ইম্পোর্ট করা হয়েছে
 
 const Portfolio = () => {
   const sectionRef = useRef(null);
@@ -24,64 +25,8 @@ const Portfolio = () => {
     { id: 'mobile', name: 'Mobile Apps' },
     { id: 'design', name: 'UI/UX Design' },
   ];
-
-  // --- নতুন, সুন্দর ছবি যুক্ত করা হয়েছে ---
-  const projects = [
-    {
-      id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online shopping platform with secure payment integration.',
-      image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=870',
-      tags: ['web', 'design'],
-      link: '#',
-      github: '#',
-    },
-    {
-      id: 2,
-      title: 'Health & Fitness App',
-      description: 'Mobile application for tracking workouts and nutrition with AI recommendations.',
-      image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=920',
-      tags: ['mobile', 'design'],
-      link: '#',
-      github: '#',
-    },
-    {
-      id: 3,
-      title: 'Enterprise Dashboard',
-      description: 'Analytics dashboard for business intelligence and data visualization.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=815',
-      tags: ['web'],
-      link: '#',
-      github: '#',
-    },
-    {
-      id: 4,
-      title: 'Travel Booking System',
-      description: 'Comprehensive travel booking platform with real-time availability.',
-      image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=870',
-      tags: ['web', 'mobile'],
-      link: '#',
-      github: '#',
-    },
-    {
-      id: 5,
-      title: 'Educational Platform',
-      description: 'Interactive learning management system with video conferencing.',
-      image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=870',
-      tags: ['web', 'design'],
-      link: '#',
-      github: '#',
-    },
-    {
-      id: 6,
-      title: 'Social Media App',
-      description: 'Community-driven social platform with content sharing features.',
-      image: 'https://images.unsplash.com/photo-1516557070042-d968619ec4af?auto=format&fit=crop&q=80&w=870',
-      tags: ['mobile'],
-      link: '#',
-      github: '#',
-    },
-  ];
+  
+  // <-- পরিবর্তন এখানে: ভেতরের পুরনো 'projects' অ্যারেটি সরিয়ে দেওয়া হয়েছে
 
   const handleFilterClick = (filter) => {
     setActiveFilter(filter);
@@ -95,13 +40,12 @@ const Portfolio = () => {
     setShowAll(prev => !prev);
   };
 
+  // <-- পরিবর্তন এখানে: 'projects' এর বদলে 'portfolioData' ব্যবহার করা হয়েছে
   const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.tags.includes(activeFilter));
+    ? portfolioData 
+    : portfolioData.filter(project => project.tags.includes(activeFilter));
   
-  // --- পরিবর্তন শুরু (ডিফল্ট প্রজেক্ট সংখ্যা ৩ করা হয়েছে) ---
   const projectsToShow = showAll ? filteredProjects : filteredProjects.slice(0, 3);
-  // --- পরিবর্তন শেষ ---
 
   return (
     <section id="portfolio" ref={setRefs} className="section-padding bg-white dark:bg-dark-900">
@@ -141,9 +85,7 @@ const Portfolio = () => {
           ))}
         </motion.div>
 
-        {/* --- পরিবর্তন শুরু (মাঝখানে আনার অপ্রয়োজনীয় ক্লাসগুলো সরানো হয়েছে) --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* --- পরিবর্তন শেষ --- */}
           {projectsToShow.map((project, index) => (
             <motion.div
               key={project.id}
@@ -192,7 +134,6 @@ const Portfolio = () => {
           ))}
         </div>
         
-        {/* --- পরিবর্তন শুরু (filteredProjects.length > 3 করা হয়েছে) --- */}
         {filteredProjects.length > 3 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -205,7 +146,6 @@ const Portfolio = () => {
               </button>
             </motion.div>
         )}
-        {/* --- পরিবর্তন শেষ --- */}
       </div>
     </section>
   );
