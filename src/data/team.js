@@ -9,7 +9,6 @@ export const teamData = [
     image: '/alvee1.jpg',
     // --- পরিবর্তন: লিঙ্কডইন ও টুইটার সরানো হয়েছে, ইমেইল আপডেট করা হয়েছে ---
     social: {
-      github: 'https://github.com/AlveeHossain45',
       email: 'mailto:mohammadhossain042004@gmail.com',
     },
     portfolio: 'https://alveehossain.netlify.app',
@@ -22,7 +21,7 @@ export const teamData = [
     image: '/sami2.jpg',
     // --- পরিবর্তন: লিঙ্কডইন ও টুইটার সরানো হয়েছে ---
     social: {
-      github: 'https://github.com/SamiSahil',
+      
       email: '#', // আপনি চাইলে এখানে साहिल এর ইমেইল যোগ করতে পারেন
     },
     portfolio: 'https://samisahil.github.io/samiprofile/',
