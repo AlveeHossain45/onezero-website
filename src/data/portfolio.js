@@ -2,12 +2,11 @@ export const portfolioData = [
   {
     id: 1,
     title: 'Student Management System',
-    description: 'A full-featured online shopping platform with secure payment integration, inventory management, and customer analytics.',
+    description: 'A comprehensive web application for managing student records, attendance, and grades.',
     image: '/sms.png',
     tags: ['web', 'design'],
     technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
     link: 'https://alveeweb.netlify.app',
-    github: 'https://github.com/AlveeHossain45',
     featured: true
   },
   {
@@ -18,18 +17,17 @@ export const portfolioData = [
     tags: ['web', 'mobile'],
     technologies: ['Angular', 'Express', 'MySQL', 'Redis'],
     link: 'https://samisahil.github.io/attendance/',
-    github: '#',
     featured: true
   },
   {
     id: 3,
     title: 'School Management System Basic',
-    description: 'Mobile application for tracking workouts and nutrition with AI recommendations and social features.',
+    description: 'School Management System Basic is a simple software to manage students, attendance, grades, and class schedules easily. It helps schools stay organized and save time.',
     image: '/sms3.png',
     tags: ['mobile', 'design'],
     technologies: ['React Native', 'Firebase', 'TensorFlow'],
     link: '#',
-    github: '#',
+    
     featured: true
   },
   {
@@ -40,7 +38,7 @@ export const portfolioData = [
     tags: ['web'],
     technologies: ['Vue.js', 'D3.js', 'Python', 'PostgreSQL'],
     link: 'https://samisahil.github.io/aiciinventoery/',
-    github: '#',
+    
     featured: false
   },
 ];
