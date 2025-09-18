@@ -26,7 +26,7 @@ const Footer = () => {
       { name: 'Terms of Service', href: '#' },
     ],
     connect: [
-      { name: 'GitHub', href: 'https://github.com/AlveeHossain45', icon: FiGithub },
+      { name: 'GitHub', href: '#', icon: FiGithub },
       { name: 'LinkedIn', href: '#', icon: FiLinkedin },
       { name: 'Twitter', href: '#', icon: FiTwitter },
       { name: 'Email', href: 'mailto:mohammadhossain042004@gmail.com', icon: FiMail },
