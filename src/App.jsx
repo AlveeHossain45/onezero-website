@@ -6,6 +6,7 @@ import About from './components/About';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import Team from './components/Team';
+import Testimonials from './components/Testimonials'; // Testimonials ইম্পোর্ট
 import Blog from './components/Blog';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
@@ -18,11 +19,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
+    const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -34,16 +31,18 @@ function App() {
     <ThemeProvider>
       <div className="App">
         <Navbar />
-        <Hero />
-        <About />
-        <Team /> 
-        <Services />
-        <Portfolio />
-        {/* Testimonials section has been removed */}
-        <Blog />
-        <FAQ />
-        <Contact />
-        <Newsletter />
+        <main>
+          <Hero />
+          <About />
+          <Services />
+          <Portfolio />
+          <Team />
+          <Testimonials /> {/* Testimonials কম্পোনেন্ট যোগ করা হয়েছে */}
+          <Blog />
+          <FAQ />
+          <Contact />
+          <Newsletter />
+        </main>
         <Footer />
         <BackToTop />
       </div>

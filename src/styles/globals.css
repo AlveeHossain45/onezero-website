@@ -6,54 +6,57 @@
   * {
     box-sizing: border-box;
   }
-  
   html {
     scroll-behavior: smooth;
   }
-  
   body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-    @apply text-dark-900 dark:text-dark-300;
+    @apply bg-white dark:bg-dark-900 text-dark-700 dark:text-dark-300 transition-colors duration-300;
+  }
+  /* --- বেসিক লিঙ্ক স্টাইল যোগ করা হয়েছে --- */
+  a {
+    @apply text-primary-600 dark:text-accent-400 hover:underline transition-colors;
   }
 }
 
 @layer components {
-  .glass-effect {
-    @apply bg-white/70 dark:bg-dark-800/70 backdrop-blur-lg border border-white/20 dark:border-dark-700/30 shadow-lg;
+  /* --- সেকশনের টাইটেলের জন্য একটি কমন ক্লাস --- */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4 text-dark-800 dark:text-white;
   }
   
-  .neumorphism {
-    @apply bg-white dark:bg-dark-800 rounded-xl shadow-[inset_5px_5px_10px_rgba(0,0,0,0.05),inset_-5px_-5px_10px_rgba(255,255,255,0.5),5px_5px_15px_rgba(0,0,0,0.05),-5px_-5px_15px_rgba(255,255,255,0.5)] dark:shadow-[inset_5px_5px_10px_rgba(0,0,0,0.3),inset_-5px_-5px_10px_rgba(255,255,255,0.1),5px_5px_15px_rgba(0,0,0,0.3),-5px_-5px_15px_rgba(255,255,255,0.1)];
+  .glass-effect {
+    @apply bg-white/70 dark:bg-dark-800/70 backdrop-blur-lg border border-white/20 dark:border-dark-700/30;
   }
 
-  /* --- পরিবর্তন এখানে করা হয়েছে --- */
-  .gradient-bg {
-    /* Day মোডে পার্পল, Night মোডে নীল */
-    @apply bg-primary-600 dark:bg-accent-600;
-  }
-  
-  .text-gradient {
-    /* Day মোডে পার্পল, Night মোডে নীল */
-    @apply text-primary-500 dark:text-accent-400;
-  }
-  
+  /* --- বাটনগুলোতে প্রিমিয়াম হোভার ইফেক্ট যোগ করা হয়েছে --- */
   .btn-primary {
-    @apply gradient-bg text-white px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-primary-700 dark:hover:bg-accent-700;
+    @apply relative overflow-hidden gradient-bg text-white px-6 py-3 rounded-md font-medium transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg;
   }
-  
+  .btn-primary::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -translate-x-full animate-[shimmer_3s_infinite];
+  }
+
   .btn-secondary {
-    @apply bg-transparent text-primary-600 border-primary-500 dark:text-accent-400 dark:border-accent-400 border-2 px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-primary-500 dark:hover:bg-accent-500 hover:text-white;
+    @apply bg-transparent text-primary-600 border-primary-500 dark:text-accent-400 dark:border-accent-400 border-2 px-6 py-3 rounded-md font-medium transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-primary-500 dark:hover:bg-accent-500 hover:text-white hover:shadow-lg;
   }
-  /* --- পরিবর্তন শেষ --- */
   
   .section-padding {
     @apply px-6 py-16 md:px-12 lg:px-24 lg:py-24;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-primary-500 to-primary-700 dark:from-accent-500 dark:to-accent-700;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent;
   }
 }
 
@@ -61,16 +64,12 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  @apply bg-white dark:bg-dark-800;
+  @apply bg-gray-100 dark:bg-dark-800;
 }
-
 ::-webkit-scrollbar-thumb {
-  /* Scrollbar সবসময় নীল থাকবে */
-  @apply bg-accent-500 rounded-full;
+  @apply bg-primary-300 dark:bg-accent-700 rounded-full;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-accent-600;
+  @apply bg-primary-400 dark:bg-accent-600;
 }
