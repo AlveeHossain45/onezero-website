@@ -29,7 +29,6 @@ const Contact = () => {
     setFormData({ name: '', email: '', message: '' });
   };
 
-  // --- পরিবর্তন শুরু: ইমেইল, ফোন এবং ঠিকানা আপডেট করা হয়েছে ---
   const contactMethods = [
     {
       icon: FiMail,
@@ -50,7 +49,6 @@ const Contact = () => {
       link: 'https://www.google.com/maps/search/?api=1&query=Uttara,Dhaka,Bangladesh'
     },
   ];
-  // --- পরিবর্তন শেষ ---
 
   return (
     <section id="contact" ref={ref} className="section-padding bg-dark-50 dark:bg-dark-800">
@@ -106,17 +104,16 @@ const Contact = () => {
                     <h4 className="font-bold text-dark-800 dark:text-white mb-1">
                       {method.title}
                     </h4>
-                    <p className="text-dark-600 dark:text-dark-300">
+                    {/* --- পরিবর্তন এখানে করা হয়েছে --- */}
+                    <p className="text-dark-600 dark:text-dark-300 break-all">
                       {method.details}
                     </p>
+                    {/* --- পরিবর্তন শেষ --- */}
                   </div>
                 </motion.a>
               ))}
             </div>
-
-            {/* --- পরিবর্তন শুরু: Office Hours সেকশনটি সরিয়ে দেওয়া হয়েছে --- */}
             
-            {/* --- পরিবর্তন শেষ --- */}
           </motion.div>
 
           {/* Contact Form */}
