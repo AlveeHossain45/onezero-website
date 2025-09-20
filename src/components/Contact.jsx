@@ -39,8 +39,8 @@ const Contact = () => {
     {
       icon: FiPhone,
       title: 'Call Us',
-      details: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      details: '+8801957320294',
+      link: 'tel:+8801957320292'
     },
     {
       icon: FiMapPin,
