@@ -1,9 +1,7 @@
-// src/components/Team.jsx
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiExternalLink } from 'react-icons/fi';
+import { FiGithub, FiMail, FiExternalLink } from 'react-icons/fi';
 import { teamData } from '../data/team';
 
 const Team = () => {
@@ -13,7 +11,6 @@ const Team = () => {
   });
 
   return (
-    // পরিবর্তন: ব্যাকগ্রাউন্ডের অতিরিক্ত ডিজাইন এলিমেন্টগুলো সরিয়ে ফেলা হয়েছে
     <section id="team" ref={ref} className="section-padding bg-dark-50 dark:bg-dark-800">
       <div className="container mx-auto">
         <motion.div
@@ -31,7 +28,6 @@ const Team = () => {
           </p>
         </motion.div>
 
-        {/* পরিবর্তন: lg:grid-cols-2 করা হয়েছে এবং max-w-4xl করা হয়েছে সঠিক লেআউটের জন্য */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {teamData.map((member, index) => (
             <motion.div
@@ -40,10 +36,8 @@ const Team = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              // পরিবর্তন: শ্যাডো সরানো হয়েছে এবং একটি সুন্দর বর্ডার যোগ করা হয়েছে
               className="group flex flex-col bg-white dark:bg-dark-900 rounded-2xl border border-gray-200 dark:border-dark-700 transition-all duration-300 overflow-hidden"
             >
-              {/* কার্ডের উপরে একটি প্রিমিয়াম অ্যাকসেন্ট বার */}
               <div className="h-1.5 bg-primary-500 dark:bg-accent-500 transition-all duration-300"></div>
               
               <div className="p-8 flex flex-col h-full text-center">
@@ -65,8 +59,7 @@ const Team = () => {
                     {Object.entries(member.social).map(([platform, url]) => {
                       const Icon = 
                         platform === 'github' ? FiGithub :
-                        platform === 'linkedin' ? FiLinkedin :
-                        platform === 'twitter' ? FiTwitter : FiMail;
+                        platform === 'email' ? FiMail : FiExternalLink;
                       
                       return (
                         <a
@@ -97,7 +90,6 @@ const Team = () => {
                     {member.bio}
                   </p>
 
-                  {/* পরিবর্তন: 'View Portfolio' লিঙ্কটিকে একটি সুন্দর বাটনে পরিণত করা হয়েছে */}
                   {member.portfolio && (
                     <div className="mt-auto pt-4">
                       <a
@@ -132,13 +124,15 @@ const Team = () => {
               <p className="text-dark-600 dark:text-dark-300 mb-6 leading-relaxed">
                 We're always looking for talented developers and designers who are passionate about creating amazing software.
               </p>
-              <motion.button 
+              <motion.a 
+                href="#contact"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="btn-primary"
+                // --- পরিবর্তন এখানে করা হয়েছে ---
+                className="btn-primary inline-block text-white"
               >
                 View Open Positions
-              </motion.button>
+              </motion.a>
             </div>
           </div>
         </motion.div>
