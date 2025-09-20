@@ -6,7 +6,7 @@ import About from './components/About';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import Team from './components/Team';
-import Testimonials from './components/Testimonials'; // Testimonials ইম্পোর্ট
+import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
@@ -19,7 +19,11 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -34,10 +38,12 @@ function App() {
         <main>
           <Hero />
           <About />
+          {/* --- পরিবর্তন এখানে করা হয়েছে --- */}
+          <Team /> 
           <Services />
           <Portfolio />
-          <Team />
-          <Testimonials /> {/* Testimonials কম্পোনেন্ট যোগ করা হয়েছে */}
+          <Testimonials />
+          {/* --- পরিবর্তন শেষ --- */}
           <Blog />
           <FAQ />
           <Contact />
