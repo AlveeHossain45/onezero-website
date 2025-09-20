@@ -1,8 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiArrowRight } from 'react-icons/fi'; // FiPlay আইকনটি সরানো হয়েছে
+import { FiArrowRight } from 'react-icons/fi';
 
 const Hero = () => {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden section-padding">
       {/* Background Gradient */}
@@ -42,8 +49,6 @@ const Hero = () => {
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center text-center">
 
-          {/* "We're hiring" ব্যানারটি এখান থেকে সরানো হয়েছে */}
-
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -69,15 +74,19 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 mb-16"
           >
-            <button className="btn-primary flex items-center justify-center">
+            <button
+              onClick={() => scrollToSection('services')}
+              className="btn-primary flex items-center justify-center"
+            >
               Explore Services <FiArrowRight size={20} className="ml-2" />
             </button>
-            <button className="btn-secondary flex items-center justify-center">
+            <button
+              onClick={() => scrollToSection('portfolio')}
+              className="btn-secondary flex items-center justify-center"
+            >
               View Portfolios
             </button>
           </motion.div>
-
-          {/* "Watch our story" অপশনটি এখান থেকে সরানো হয়েছে */}
 
         </div>
       </div>

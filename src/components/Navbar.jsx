@@ -17,7 +17,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // --- পরিবর্তন: Testimonials লিঙ্কটি সরানো হয়েছে ---
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -46,7 +45,7 @@ const Navbar = () => {
             className="flex items-center space-x-2"
           >
             <div className="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-lg">
-              01
+              10
             </div>
             <span className="text-xl font-bold text-dark-800 dark:text-white">
               OneZero

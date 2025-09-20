@@ -1,4 +1,5 @@
-import React from 'react'; // <--- এই লাইনটি যোগ করা হয়েছে
+
+import React from 'react';
 import { motion } from 'framer-motion';
 
 const Preloader = () => {
@@ -22,7 +23,7 @@ const Preloader = () => {
           }}
           className="w-20 h-20 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-2xl mb-4"
         >
-          01
+          10
         </motion.div>
         
         <motion.h2 
