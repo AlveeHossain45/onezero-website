@@ -5,7 +5,7 @@ export const teamData = [
     id: 1,
     name: 'Alvee Hossain',
     role: 'Co-Founder & CEO',
-    bio: 'I’m a Frontend Web Developer with 2 years of experience, skilled in building responsive and user-friendly websites using HTML, CSS, JavaScript, React, and Tailwind CSS. I focus on clean UI/UX and delivering high-quality projects',
+    bio: 'Frontend Developer with 2 years of experience in HTML, CSS, JavaScript, React, and Tailwind CSS. Expert in building responsive, user-friendly websites with clean UI/UX.',
     image: '/alvee1.jpg',
     // --- পরিবর্তন: লিঙ্কডইন ও টুইটার সরানো হয়েছে, ইমেইল আপডেট করা হয়েছে ---
     social: {
@@ -17,7 +17,7 @@ export const teamData = [
     id: 2,
     name: 'Samiuzzaman Sahil',
     role: 'Co-Founder & CTO',
-    bio: 'I’m a Backend Developer with 2 years of experience, specializing in Node.js, Express, MongoDB, PostgreSQL, and Prisma. I focus on building secure, high-performance, and reliable web applications.',
+    bio: 'Backend Developer with 2 years of experience, skilled in Node.js, Express, MongoDB, PostgreSQL, and Prisma. Focused on building secure, scalable, and high-performance web applications.',
     image: '/sami2.jpg',
     // --- পরিবর্তন: লিঙ্কডইন ও টুইটার সরানো হয়েছে ---
     social: {
