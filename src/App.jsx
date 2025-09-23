@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
+import Pricing from './components/Pricing';
 import Portfolio from './components/Portfolio';
 import Team from './components/Team';
 import Testimonials from './components/Testimonials';
@@ -41,6 +42,7 @@ function App() {
           {/* --- পরিবর্তন এখানে করা হয়েছে --- */}
           <Team /> 
           <Services />
+          <Pricing />
           <Portfolio />
           <Testimonials />
           {/* --- পরিবর্তন শেষ --- */}
