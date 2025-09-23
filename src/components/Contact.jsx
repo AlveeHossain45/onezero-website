@@ -95,20 +95,19 @@ const Contact = () => {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ x: 5 }}
-                  className="flex items-start p-6 bg-white dark:bg-dark-900 rounded-2xl shadow-md hover:shadow-lg transition-shadow"
+                  className="flex items-center p-6 bg-white dark:bg-dark-900 rounded-2xl shadow-md hover:shadow-lg transition-shadow"
                 >
-                  <div className="p-3 rounded-full bg-primary-100 dark:bg-primary-900/30 mr-4">
-                    <method.icon className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+                  {/* --- আইকন স্টাইল পরিবর্তন করা হয়েছে --- */}
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg gradient-bg flex items-center justify-center mr-4">
+                    <method.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h4 className="font-bold text-dark-800 dark:text-white mb-1">
                       {method.title}
                     </h4>
-                    {/* --- পরিবর্তন এখানে করা হয়েছে --- */}
                     <p className="text-dark-600 dark:text-dark-300 break-all">
                       {method.details}
                     </p>
-                    {/* --- পরিবর্তন শেষ --- */}
                   </div>
                 </motion.a>
               ))}
@@ -124,8 +123,9 @@ const Contact = () => {
             className="bg-white dark:bg-dark-900 rounded-2xl shadow-xl p-8"
           >
             <div className="flex items-center mb-6">
-              <div className="p-3 rounded-full bg-primary-100 dark:bg-primary-900/30 mr-4">
-                <FiMessageSquare className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+              {/* --- আইকন স্টাইল পরিবর্তন করা হয়েছে --- */}
+              <div className="flex-shrink-0 w-12 h-12 rounded-lg gradient-bg flex items-center justify-center mr-4">
+                <FiMessageSquare className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-dark-800 dark:text-white">
                 Send us a message

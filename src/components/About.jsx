@@ -72,8 +72,7 @@ const About = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="space-y-6"
-          >
+            className="space-y-6">
             {missionVision.map((item, index) => (
               <motion.div
                 key={index}
@@ -83,12 +82,15 @@ const About = () => {
                 className="p-6 rounded-2xl glass-effect card-hover"
               >
                 <div className="flex items-start mb-4">
-                  <div className="p-3 rounded-full bg-primary-100 dark:bg-primary-900/30 mr-4">
-                    <item.icon className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+                  {/* --- আইকন স্টাইল পরিবর্তন করা হয়েছে --- */}
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg gradient-bg flex items-center justify-center mr-4">
+                    <item.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-dark-800 dark:text-white">{item.title}</h3>
+                  <div>
+                    <h3 className="text-xl font-bold text-dark-800 dark:text-white">{item.title}</h3>
+                    <p className="text-dark-600 dark:text-dark-300 mt-2">{item.description}</p>
+                  </div>
                 </div>
-                <p className="text-dark-600 dark:text-dark-300">{item.description}</p>
               </motion.div>
             ))}
 
