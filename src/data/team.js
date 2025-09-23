@@ -22,7 +22,7 @@ export const teamData = [
     // --- পরিবর্তন: লিঙ্কডইন ও টুইটার সরানো হয়েছে ---
     social: {
       
-      email: '#', // আপনি চাইলে এখানে साहिल এর ইমেইল যোগ করতে পারেন
+      email: 'samiujjaman643@gmail.com', // আপনি চাইলে এখানে साहिल এর ইমেইল যোগ করতে পারেন
     },
     portfolio: 'https://samisahil.github.io/samiprofile/',
   }
