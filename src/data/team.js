@@ -24,7 +24,7 @@ export const teamData = [
       
       email: 'mailto:samiujjaman643@gmail.com', // আপনি চাইলে এখানে साहिल এর ইমেইল যোগ করতে পারেন
     },
-    portfolio: 'https://samisahil.github.io/samiprofile/',
+    portfolio: 'https://samisahil.github.io/profile/',
   }
 ];
 
