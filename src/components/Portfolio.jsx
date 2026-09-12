@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
-import { portfolioData } from '../data/portfolio'; // <-- পরিবর্তন এখানে: portfolio.js থেকে ডেটা ইম্পোর্ট করা হয়েছে
+import { portfolioData } from '../data/portfolio';
 
 const Portfolio = () => {
   const sectionRef = useRef(null);
@@ -25,8 +25,6 @@ const Portfolio = () => {
     { id: 'mobile', name: 'Mobile Apps' },
     { id: 'design', name: 'UI/UX Design' },
   ];
-  
-  // <-- পরিবর্তন এখানে: ভেতরের পুরনো 'projects' অ্যারেটি সরিয়ে দেওয়া হয়েছে
 
   const handleFilterClick = (filter) => {
     setActiveFilter(filter);
@@ -40,7 +38,6 @@ const Portfolio = () => {
     setShowAll(prev => !prev);
   };
 
-  // <-- পরিবর্তন এখানে: 'projects' এর বদলে 'portfolioData' ব্যবহার করা হয়েছে
   const filteredProjects = activeFilter === 'all' 
     ? portfolioData 
     : portfolioData.filter(project => project.tags.includes(activeFilter));
@@ -102,12 +99,28 @@ const Portfolio = () => {
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white text-dark-800 hover:bg-primary-500 hover:text-white transition-colors">
-                    <FiExternalLink size={18} />
-                  </a>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white text-dark-800 hover:bg-primary-500 hover:text-white transition-colors">
-                    <FiGithub size={18} />
-                  </a>
+                  {project.link && project.link !== '#' && (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="p-3 rounded-full bg-white text-dark-800 hover:bg-primary-500 hover:text-white transition-colors"
+                      aria-label={`View ${project.title}`}
+                    >
+                      <FiExternalLink size={18} />
+                    </a>
+                  )}
+                  {project.github && (
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="p-3 rounded-full bg-white text-dark-800 hover:bg-primary-500 hover:text-white transition-colors"
+                      aria-label={`View ${project.title} on GitHub`}
+                    >
+                      <FiGithub size={18} />
+                    </a>
+                  )}
                 </div>
               </div>
 

@@ -21,24 +21,32 @@ export const portfolioData = [
   },
   {
     id: 3,
+    title: 'EliteShop - eCommerce Platform',
+    description: 'A modern, fully responsive eCommerce platform built for businesses to sell products online with ease. Features product management, cart, and secure checkout.',
+    image: '/eliteshop.png',
+    tags: ['web', 'design'],
+    technologies: ['React', 'Tailwind CSS', 'Node.js', 'MongoDB'],
+    link: 'https://ultrashopbd.netlify.app',
+    featured: true
+  },
+  {
+    id: 4,
     title: 'School Management System Basic',
     description: 'School Management System Basic is a simple software to manage students, attendance, grades, and class schedules easily. It helps schools stay organized and save time.',
     image: '/sms3.png',
     tags: ['mobile', 'design'],
     technologies: ['React Native', 'Firebase', 'TensorFlow'],
     link: '#',
-    
     featured: true
   },
   {
-    id: 4,
+    id: 5,
     title: 'AIC Inventory -- Management System',
     description: 'Analytics dashboard for business intelligence and data visualization with real-time reporting.',
     image: '/sms2.png',
     tags: ['web'],
     technologies: ['Vue.js', 'D3.js', 'Python', 'PostgreSQL'],
     link: 'https://samisahil.github.io/aiciinventoery/',
-    
     featured: false
   },
 ];
