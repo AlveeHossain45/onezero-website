@@ -25,9 +25,9 @@ export const faqData = [
   },
   {
     id: 5,
-    question: 'What is your pricing model?',
-    answer: 'We offer flexible pricing, including fixed-price contracts for well-defined projects and hourly rates for dynamic requirements. We recommend the best approach after our initial consultation.',
-    category: 'pricing'
+    question: 'How do you determine project cost?',
+    answer: 'Project cost depends on scope, complexity, and timeline. Contact us for a free consultation and a custom quote tailored to your specific needs.',
+    category: 'process'
   }
 ];
 

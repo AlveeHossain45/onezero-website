@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
-import Pricing from './components/Pricing';
 import Portfolio from './components/Portfolio';
 import Team from './components/Team';
 import Testimonials from './components/Testimonials';
@@ -20,11 +19,9 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
-
     return () => clearTimeout(timer);
   }, []);
 
@@ -39,13 +36,11 @@ function App() {
         <main>
           <Hero />
           <About />
-          {/* --- পরিবর্তন এখানে করা হয়েছে --- */}
           <Team /> 
           <Services />
-          <Pricing />
+          {/* <Pricing />  ← রিমুভ করা হয়েছে */}
           <Portfolio />
           <Testimonials />
-          {/* --- পরিবর্তন শেষ --- */}
           <Blog />
           <FAQ />
           <Contact />
